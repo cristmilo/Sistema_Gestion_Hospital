@@ -212,7 +212,7 @@ class ModuloPacientes(tk.Frame):
                  fg=t()["header_fg"], bg=t()["bg"]).pack(pady=15)
 
         contenedor = tk.Frame(self, bg=t()["bg"])
-        contenedor.pack(fill="both", expand=True, padx=20)
+        contenedor.pack(fill="both", expand=True, padx=20)       
 
         # ── Formulario izquierdo ──────────────────────────────
         form = tk.LabelFrame(contenedor, text="Datos del Paciente",
@@ -372,7 +372,7 @@ class ModuloPacientes(tk.Frame):
             cur.callproc("sp_mostrar_pacientes")
             for result in cur.stored_results():
                 for fila in result.fetchall():
-                    self.tabla.insert("", "end", values=fila)
+                    self.tabla.insert("", "end", values=fila) 
         except mysql.connector.Error as e:
             messagebox.showerror("Error MySQL", str(e))
         finally:
